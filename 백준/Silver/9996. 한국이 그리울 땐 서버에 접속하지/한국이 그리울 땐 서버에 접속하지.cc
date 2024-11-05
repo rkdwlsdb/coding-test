@@ -1,23 +1,22 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int n, pos;
-string fp, pre, post, fname;
+// 16:46 ~ 17:13(27min)
+
+int n;
+string p;
 
 int main(){
-    cin >> n >> fp;
-    pos = fp.find("*");
-    pre = fp.substr(0,pos);
-    post = fp.substr(pos+1);
-    
-    for(int i=0; i<n; i++){
-        cin >> fname;
-        if((pre+post).size() > fname.size()) cout << "NE\n";
-        else{
-            if(fname.substr(0, pre.size()) == pre && fname.substr(fname.size()-post.size(), fname.size()) == post) cout << "DA\n";
-            else cout << "NE\n";
-        }
+    cin >> n >> p;
+    int pos = p.find('*');
+    string p1 = p.substr(0, pos);
+    string p2 = p.substr(pos+1);
+
+    for(int i=0; i<n;  i++){
+        cin >> p;
+        if(p.size() < (p1.size()+p2.size())) cout << "NE\n"; 
+        else if(p1 == p.substr(0, pos) && p2 == p.substr(p.size()-p2.size())) cout << "DA\n";
+        else cout << "NE\n"; 
     }
-    
     return 0;
 }
