@@ -1,26 +1,30 @@
-#include<bits/stdc++.h>
+// 11:13 ~
+
+#include <bits/stdc++.h>
 using namespace std;
 
-string s;
 int n, m;
-map <string, int> mp;
-map <int, string> mp2;
+string s;
+map <int, string> mp1;
+map <string, int> mp2;
+
+// 최대 범위 100,000,000,000
 
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     cin >> n >> m;
     for(int i=1; i<=n; i++){
         cin >> s;
-        mp.insert({s, i});
-        mp2.insert({i, s});
+        mp1[i] = s;
+        mp2[s] = i;
     }
     for(int i=0; i<m; i++){
         cin >> s;
-        if(atoi(s.c_str()) == 0){
-            cout << mp[s] << '\n';
-        }
-        else cout << mp2[atoi(s.c_str())] << '\n';
+        if(atoi(s.c_str())) cout << mp1[atoi(s.c_str())] << '\n';
+        else cout << mp2[s] << '\n';
     }
     return 0;
 }
